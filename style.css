@@ -1,0 +1,208 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: #ffffff;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+
+  /* Responsive background image */
+  background-image: url('wood-bg.jpg');
+  background-size: cover;       /* scales to always fill the screen */
+  background-position: center;  /* keeps it centered at any size */
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* stays put when the page scrolls */
+  min-height: 100vh;
+}
+
+h1 {
+  margin: 0;
+  padding: 18px 0 12px;
+  color: #0c0c0c;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+/* ---------- Controls (frosted glass panel) ---------- */
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+  padding: 18px 24px;
+
+  background-color: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 14px;
+}
+
+.control-group label {
+  color: #2a2a3d;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+/* ---------- Buttons ---------- */
+
+button {
+  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 2px solid #66bb6a;
+  border-radius: 24px;
+  background-color: #ffffff;
+  color: #2e7d32;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+button:hover:not(:disabled) {
+  background-color: #e8f5e9;
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  border-color: #bbb;
+  color: #999;
+  background-color: #f0f0f0;
+  cursor: not-allowed;
+}
+
+select {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #bbb;
+  background-color: #ffffff;
+  color: #2a2a3d;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* ---------- Sliders ---------- */
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 160px;
+  height: 6px;
+  border-radius: 4px;
+  background: #cfd8dc;
+  cursor: pointer;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #2196f3;
+  border: 2px solid #ffffff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #2196f3;
+  border: 2px solid #ffffff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+/* ---------- Legend ---------- */
+
+.legend {
+  margin: 14px 0;
+  font-size: 14px;
+  display: inline-block;
+  background-color: rgba(20, 20, 30, 0.55);
+  backdrop-filter: blur(4px);
+  padding: 8px 18px;
+  border-radius: 20px;
+}
+
+.legend-item {
+  margin: 0 10px;
+}
+
+.legend-box {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.bar-color {
+  background-color: #2196f3;
+}
+
+.comparing-color {
+  background-color: #ff5252;
+}
+
+.sorted-color {
+  background-color: #4caf50;
+}
+
+/* ---------- Bars (sit directly on the wood background, no box) ---------- */
+
+#array-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 420px;
+  gap: 1px;
+  padding: 10px 10px 0;
+}
+
+.bar {
+  background-color: #2949e8; /* blue = unsorted */
+  transition: height 0.1s ease, background-color 0.1s ease;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4));
+}
+
+.bar.comparing {
+  background-color: #ff3b30; /* red = comparing */
+}
+
+.bar.sorted {
+  background-color: #2e9e44; /* green = sorted */
+}
+
+.bar.min-candidate {
+  background-color: #ffd700; /* yellow = current min / pivot */
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 600px) {
+  .controls {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  body {
+    background-attachment: scroll;
+  }
+
+  #array-container {
+    height: 320px;
+  }
+}

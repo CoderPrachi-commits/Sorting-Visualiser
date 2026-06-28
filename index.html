@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sorting Visualizer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <h1>Sorting Visualizer</h1>
+
+  <div class="controls">
+    <button id="generateBtn">Generate New Array</button>
+
+    <div class="control-group">
+      <label for="sizeSlider">Array Size: <span id="sizeValue">50</span></label>
+      <input type="range" id="sizeSlider" min="10" max="100" value="50" />
+    </div>
+
+    <div class="control-group">
+      <label for="speedSlider">Speed: <span id="speedValue">50</span></label>
+      <input type="range" id="speedSlider" min="1" max="100" value="50" />
+    </div>
+
+    <div class="control-group">
+      <label for="algoSelect">Algorithm:</label>
+      <select id="algoSelect">
+        <option value="bubble">Bubble Sort</option>
+        <option value="selection">Selection Sort</option>
+        <option value="insertion">Insertion Sort</option>
+        <option value="merge">Merge Sort</option>
+        <option value="quick">Quick Sort</option>
+      </select>
+    </div>
+
+    <button id="startBtn">Start Sorting</button>
+  </div>
+
+  <div class="legend">
+    <span class="legend-item"><span class="legend-box bar-color"></span>Unsorted</span>
+    <span class="legend-item"><span class="legend-box comparing-color"></span>Comparing</span>
+    <span class="legend-item"><span class="legend-box sorted-color"></span>Sorted</span>
+  </div>
+
+  <div id="array-container"></div>
+
+  <!-- Algorithm files are loaded first so their functions exist
+       before script.js calls them -->
+  <script src="bubbleSort.js"></script>
+  <script src="selectionSort.js"></script>
+  <script src="insertionSort.js"></script>
+  <script src="mergeSort.js"></script>
+  <script src="quickSort.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
